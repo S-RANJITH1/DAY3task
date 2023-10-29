@@ -18,36 +18,50 @@
 // }
 
 
+// 2.Display all the country flags in the console:
+// //Step 1:
+// //
+// //create a XHR object.
+// var request=new XMLHttpRequest();
+// //step2
+// //open a connection to the server
+// request.open("GET","https://restcountries.com/v3.1/all",true)
+// //step3
+// //initiating a bridge to the server
+// request.send();//used to send a request to the server
+// //step4:
+// //server response
+// request.onload=function()
+// {
+// var data=request.response;
+// //console.log(data);
+// var result=JSON.parse(data);
+// //console.log(result);
+// console.log(result[0].name.common);
 
-//Step 1:
-//
-//create a XHR object.
+
+
+// //console.log(result[0].area)
+// //for accessing multiple values use looping
+// for(var i=0;i<result.length;i++)
+// {
+//    console.log(result[i].flags.svg)
+// }
+// }
+
+
+//task3:Print all countries names,regions,subregion and populations:
+
 var request=new XMLHttpRequest();
-//step2
-//open a connection to the server
 request.open("GET","https://restcountries.com/v3.1/all",true)
-//step3
-//initiating a bridge to the server
-request.send();//used to send a request to the server
-//step4:
-//server response
+request.send();
 request.onload=function()
 {
 var data=request.response;
-//console.log(data);
 var result=JSON.parse(data);
-//console.log(result);
-console.log(result[0].name.common);
-
-
-
-//console.log(result[0].area)
-//for accessing multiple values use looping
+console.log(result);
 for(var i=0;i<result.length;i++)
 {
-   console.log(result[i].flags.svg)
+   console.log(result[i].name.common,result[i].region,result[i].subregion,result[i].population)
 }
 }
-
-
-
